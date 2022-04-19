@@ -53,7 +53,7 @@ module.exports.userController = {
     try {
       const userId = await User.findById(req.params.user);
       const bookId = await Book.findById(req.params.book);
-      if(userId._id !== userId) {
+      if(userId._id.toString() !== bookId.renter._id.toString()) {
         return res.json('У этого пользователя нет данной книги')
       }
       if (userId.isBlocked) {
